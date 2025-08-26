@@ -9,7 +9,7 @@
     "build": "npm run build:clean && npm run build:compile",
     "build:clean": "rm -rf dist",
     "build:compile": "babel src -d dist",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "test:watch": "jest --watch",
     "test:e2e": "jest --config jest.e2e.config.js",
     "lint": "eslint src/**/*.js",

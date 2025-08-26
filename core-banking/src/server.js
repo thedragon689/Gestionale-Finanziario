@@ -67,6 +67,9 @@ app.use('/api/v1/accounts', require('./routes/accounts'));
 app.use('/api/v1/transactions', require('./routes/transactions'));
 app.use('/ai/chatbot', require('./routes/aiChatbot'));
 
+// Simulation Routes
+app.use('/api/simulation', require('./routes/simulation'));
+
 // Health check
 app.get('/health', (req, res) => {
   res.json({
@@ -74,6 +77,23 @@ app.get('/health', (req, res) => {
     service: 'core-banking',
     timestamp: new Date().toISOString(),
     version: '1.0.0'
+  });
+});
+
+// Simulation health check
+app.get('/simulation/health', (req, res) => {
+  res.json({
+    status: 'OK',
+    service: 'simulation-system',
+    timestamp: new Date().toISOString(),
+    version: '1.0.0',
+    features: [
+      'market-simulation',
+      'user-transactions',
+      'market-events',
+      'daily-summaries',
+      'automated-scheduling'
+    ]
   });
 });
 
@@ -88,6 +108,8 @@ app.listen(PORT, () => {
   console.log(`📚 API Documentation available at http://localhost:${PORT}/api-docs`);
   console.log(`🔍 Health check available at http://localhost:${PORT}/health`);
   console.log(`🤖 AI Chatbot available at http://localhost:${PORT}/ai/chatbot`);
+  console.log(`📊 Simulation system available at http://localhost:${PORT}/api/simulation`);
+  console.log(`📈 Simulation health check at http://localhost:${PORT}/simulation/health`);
 });
 
 module.exports = app;

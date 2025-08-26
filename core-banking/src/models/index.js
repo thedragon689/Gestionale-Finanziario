@@ -2,7 +2,11 @@ const { Sequelize } = require('sequelize');
 const { logger } = require('../utils/logger');
 
 // Database configuration
-const sequelize = new Sequelize(process.env.DATABASE_URL, {
+const sequelize = new Sequelize(
+  process.env.DB_NAME || 'gestionale_finanziario',
+  process.env.DB_USER || 'postgres',
+  process.env.DB_PASSWORD || 'password',
+  {
   dialect: 'postgres',
   logging: process.env.NODE_ENV === 'development' ? logger.info : false,
   pool: {
@@ -28,6 +32,12 @@ const Customer = require('./Customer');
 const BankBranch = require('./BankBranch');
 const Currency = require('./Currency');
 const AccountType = require('./AccountType');
+
+// Import simulation models
+const MarketSimulation = require('./MarketSimulation');
+const SimulatedTransaction = require('./SimulatedTransaction');
+const SimulatedEvent = require('./SimulatedEvent');
+const DailySimulation = require('./DailySimulation');
 
 // Define associations
 const defineAssociations = () => {
@@ -89,5 +99,9 @@ module.exports = {
   BankBranch,
   Currency,
   AccountType,
+  MarketSimulation,
+  SimulatedTransaction,
+  SimulatedEvent,
+  DailySimulation,
   initializeModels
 };

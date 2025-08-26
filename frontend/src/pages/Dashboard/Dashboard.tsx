@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 import {
   AccountBalance,
-  TrendingUp,
+
   People,
   AccountBalanceWallet,
   Refresh,
@@ -29,7 +29,6 @@ import {
   Euro,
   ShowChart,
   Logout,
-  ShowChart as EquitiesIcon,
   AccountBalance as BondsIcon,
 } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
@@ -372,7 +371,7 @@ const Dashboard: React.FC = () => {
                 <Button
                   fullWidth
                   variant="outlined"
-                  startIcon={<EquitiesIcon />}
+                  startIcon={<ShowChart />}
                   onClick={() => handleNavigation('/equities')}
                   sx={{ justifyContent: 'flex-start', p: 2, height: 60 }}
                 >
