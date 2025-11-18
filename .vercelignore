@@ -1,0 +1,58 @@
+# File e cartelle da ignorare nel deploy Vercel
+
+# Documentazione
+*.md
+*.txt
+docs/tables/
+SUPABASE_*.md
+*_CONNECTION.md
+*_INTEGRATION.md
+*_CONFIG.md
+*_WARNING.md
+
+# File di setup e test
+*.csv
+*.sql
+*.py
+*.sh
+scripts/
+docs/tables/
+
+# File di configurazione locale
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+
+# Test
+tests/
+*.test.js
+*.test.ts
+*.spec.js
+*.spec.ts
+
+# Build artifacts
+dist/
+build/
+.next/
+out/
+
+# Node modules (già ignorato di default)
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Backup
+*.bak
+*.backup
+

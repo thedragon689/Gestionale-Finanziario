@@ -1,0 +1,67 @@
+{
+  "name": "gestionale-finanziario",
+  "version": "1.0.0",
+  "description": "Sistema bancario completo e modulare per istituti finanziari con integrazione nativa per criptovalute",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:core\" \"npm run dev:frontend\"",
+    "dev:core": "cd core-banking && npm run dev",
+    "dev:frontend": "cd frontend && npm start",
+    "start:all": "concurrently \"npm run start:core\" \"npm run start:frontend\"",
+    "start:core": "cd core-banking && node src/test-server-simple.js",
+    "start:frontend": "cd frontend && npm start",
+    "start:docker": "docker-compose up -d",
+    "stop:docker": "docker-compose down",
+    "restart:docker": "docker-compose restart",
+    "logs": "docker-compose logs -f",
+    "setup": "npm run setup:core && npm run setup:frontend",
+    "setup:core": "cd core-banking && npm install",
+    "setup:frontend": "cd frontend && npm install",
+    "init-db": "./scripts/init-db.sh",
+    "test": "npm run test:core && npm run test:frontend",
+    "test:core": "cd core-banking && npm test",
+    "test:frontend": "cd frontend && npm test",
+    "build": "npm run build:frontend",
+    "build:frontend": "cd frontend && npm run build",
+    "lint": "npm run lint:core && npm run lint:frontend",
+    "lint:core": "cd core-banking && npm run lint",
+    "lint:frontend": "cd frontend && npm run lint",
+    "security": "npm audit && npm run security:scan",
+    "security:scan": "snyk test",
+    "docs": "npm run docs:core && npm run docs:frontend",
+    "docs:core": "cd core-banking && npm run docs",
+    "docs:frontend": "cd frontend && npm run docs"
+  },
+  "keywords": [
+    "banking",
+    "fintech",
+    "cryptocurrency",
+    "bitcoin",
+    "microservices",
+    "blockchain",
+    "compliance",
+    "security"
+  ],
+  "author": "Gestionale Finanziario Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.0.2",
+    "snyk": "^1.1260.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gestionale-finanziario/gestionale-finanziario.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gestionale-finanziario/gestionale-finanziario/issues"
+  },
+  "homepage": "https://gestionale-finanziario.com",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.78.0"
+  }
+}
